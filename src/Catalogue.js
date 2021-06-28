@@ -17,7 +17,7 @@ const Catalogue = () => {
                 include_adult: 'false',
                 include_video: 'false',
                 page: 1,
-                // primary_release_year: 1999,
+                // primary_release_year: 2007,
             },
         }).then((response) => {
             const movieDBResponse = response.data.results;
@@ -33,12 +33,18 @@ const Catalogue = () => {
             {movies.map((movie) => {
                 console.log(movie)
                 return (
-                    <li key={movie.id}>
+                    <li key={movie.id} className="movie">
+                        {
+                        movie.poster_path
+                        ?
                         <Link to={`/movie/${movie.id}`}>
                         <img
                             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                             alt={`Poster for ${movie.original_title}`} />
                         </Link>
+                        :
+                        <h2>Failed to Load Image</h2>
+                        }
                     </li>
                 )
             })}

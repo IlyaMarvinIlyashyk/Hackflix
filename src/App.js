@@ -11,7 +11,7 @@ function App() {
 
   return (
     <Router>
-      <div className="wrapper">
+      <div>
         <header>
           <h1>Hackflix</h1>
         </header>
