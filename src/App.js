@@ -1,9 +1,12 @@
 import './App.css';
-// import axios from 'axios';
-// import { useEffect, useState } from 'react';
-import Catalogue from './Catalogue';
+import Movies from './Movies';
 import MovieDetails from './MovieDetails';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Navbar from './Navbar';
+import TVs from './Tvs';
+import Trending from './Trending';
+import TvDetails from './TvDetails';
+import MyList from './MyList';
 
 
 function App() {
@@ -11,15 +14,13 @@ function App() {
 
   return (
     <Router>
-      <div>
-        <header>
-          <h1>Hackflix</h1>
-        </header>
-
-        <Route exact path="/" component={Catalogue}/>
+        <Navbar />
+        <Route exact path="/" component={Trending}/>
+        <Route exact path="/movies" component={Movies}/>
         <Route exact path="/movie/:movieID" component={MovieDetails}/>
-
-      </div>
+        <Route exact path="/tv/:tvID" component={TvDetails}/>
+        <Route exact path="/tv-shows" component={TVs}/>
+        <Route exact path="/my-list" component={MyList}/>
     </Router>
   );
 }

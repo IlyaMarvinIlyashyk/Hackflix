@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 
 
-const Catalogue = () => {
+const Movies = () => {
     
     const [movies, setMovies] = useState([])
 
@@ -16,7 +16,7 @@ const Catalogue = () => {
                 sort_by: 'popularity.desc',
                 include_adult: 'false',
                 include_video: 'false',
-                page: 1,
+                // page: 1,
                 // primary_release_year: 2007,
             },
         }).then((response) => {
@@ -31,7 +31,6 @@ const Catalogue = () => {
     return(
         <ul className="catalogue">
             {movies.map((movie) => {
-                console.log(movie)
                 return (
                     <li key={movie.id} className="movie">
                         {
@@ -52,4 +51,4 @@ const Catalogue = () => {
     )
 }
 
-export default Catalogue;
+export default Movies;

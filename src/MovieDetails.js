@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 
 const MovieDetails = (props) =>{
 
- const [movie, setMovie] = useState({});
+ const [movieDetails, setMovieDetails] = useState({});
  
  useEffect(()=>{
      
@@ -13,12 +13,12 @@ const MovieDetails = (props) =>{
              api_key: '50f5c76a90810a4a56f5198029f99d06'
          }
      }).then((response)=>{
-        setMovie(response.data)
+        setMovieDetails(response.data)
      })
 
- },[])
+ },[props.match.params.movieID])
 
-    const { original_title, tagline, overview, poster_path } = movie;
+    const { original_title, tagline, overview, poster_path } = movieDetails;
 
     return(
         <div className="poster">
