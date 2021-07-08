@@ -18,19 +18,21 @@ const TvDetails = (props) => {
 
     }, [props.match.params.movieID])
 
-    const { original_title, tagline, overview, poster_path } = tvDetails;
-
+    const { original_name, tagline, overview, poster_path } = tvDetails;
+    console.log(tvDetails.tagline)
+    
+    
     return (
         <div className="poster">
             <div className="description">
-                <h2>{original_title}</h2>
+                <h2>{original_name}</h2>
                 <h3>{tagline}</h3>
                 <p>{overview}</p>
             </div>
             <div className="poster-image">
                 <img
                     src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-                    alt={`Movie poster for ${original_title}`}
+                    alt={`TV poster for ${original_name}`}
                 />
             </div>
         </div>

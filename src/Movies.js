@@ -1,36 +1,25 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Children } from "react";
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import useContentPage from "./useContentPage";
 
 
 const Movies = () => {
     
-    const [movies, setMovies] = useState([])
-
-    useEffect(() => {
-
-        axios({
-            url: 'https://api.themoviedb.org/3/discover/movie',
-            params: {
-                api_key: '50f5c76a90810a4a56f5198029f99d06',
-                sort_by: 'popularity.desc',
-                include_adult: 'false',
-                include_video: 'false',
-                // page: 1,
-                // primary_release_year: 2007,
-            },
-        }).then((response) => {
-            const movieDBResponse = response.data.results;
-
-            setMovies(movieDBResponse);
-        })
-
-    }, []);
     
+    const [moviePage, setMoviePage] = useState(1)
+    const [category, setCategory] = useState('discover/movie')
+    const {
+        movies,
+        hasMore,
+        loading,
+        error
+    } = useContentPage(moviePage, category);
     
     return(
         <ul className="catalogue">
             {movies.map((movie) => {
+                console.log(movie)
                 return (
                     <li key={movie.id} className="movie">
                         {
@@ -42,7 +31,7 @@ const Movies = () => {
                             alt={`Poster for ${movie.original_title}`} />
                         </Link>
                         :
-                        <h2>Failed to Load Image</h2>
+                        <h2>Something went wrong 😢</h2>
                         }
                     </li>
                 )
@@ -52,3 +41,5 @@ const Movies = () => {
 }
 
 export default Movies;
+
+// global updater that would pass it to the Children, blur, preventing API from firing on every type, restructuring 
