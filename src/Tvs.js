@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import useContentPage from "./useContentPage"
+import useContent from "./useContent"
 
 const TVs = () => {
 
@@ -12,7 +12,7 @@ const TVs = () => {
         hasMore,
         loading,
         error
-    } = useContentPage(page, category);
+    } = useContent(page, category);
     
     return (
         <ul className="catalogue">

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import useContentPage from "./useContentPage";
+import useContent from "./useContent";
 
 const Trending = () => {
 
@@ -12,7 +12,7 @@ const Trending = () => {
             hasMore,
             loading,
             error
-        } = useContentPage(page, category);
+        } = useContent(page, category);
 
 
         return (

@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useEffect, useState } from 'react'
 
-export default function useContentPage(page, category) {
+export default function useContent(page, category) {
 
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
@@ -29,8 +29,6 @@ export default function useContentPage(page, category) {
         })
 
     }, [page]);
-
-    console.log(trending)
 
     return { loading,  error, movies, tv, trending, hasMore}
 }

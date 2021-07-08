@@ -1,7 +1,7 @@
 import { useState, useEffect, Children } from "react";
 import { Link } from 'react-router-dom'
 import axios from 'axios';
-import useContentPage from "./useContentPage";
+import useContent from "./useContent";
 
 
 const Movies = () => {
@@ -14,7 +14,7 @@ const Movies = () => {
         hasMore,
         loading,
         error
-    } = useContentPage(moviePage, category);
+    } = useContent(moviePage, category);
     
     return(
         <ul className="catalogue">
