@@ -1,4 +1,3 @@
-// import { BrowserRouter as Router, Route } from "react-router-dom"
 import { Link } from "react-router-dom"
 
 const Navbar = () => {

@@ -1,34 +1,30 @@
-import { useState, useEffect, Children } from "react";
+import { useState } from "react";
 import { Link } from 'react-router-dom'
-import axios from 'axios';
-import useContent from "./useContent";
-
+import useContent from "../customHooks/useContent"
 
 const Movies = () => {
-    
-    
-    const [moviePage, setMoviePage] = useState(1)
+
+    const [page, setPage] = useState(1)
     const [category, setCategory] = useState('discover/movie')
-    const {
-        movies,
-        hasMore,
-        loading,
-        error
-    } = useContent(moviePage, category);
+    
+    const { movies, hasMore, loading, error } = useContent(page, category);
     
     return(
         <ul className="catalogue">
             {movies.map((movie) => {
-                console.log(movie)
+
+            const { id, poster_path, original_title, } = movie
+               
                 return (
-                    <li key={movie.id} className="movie">
+                    <li key={id} className="movie">
                         {
-                        movie.poster_path
+                        poster_path
                         ?
-                        <Link to={`/movie/${movie.id}`}>
+                        <Link to={`/movie/${id}`}>
                         <img
-                            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                            alt={`Poster for ${movie.original_title}`} />
+                            src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                            alt={`Poster for ${original_title}`}
+                        />
                         </Link>
                         :
                         <h2>Something went wrong 😢</h2>

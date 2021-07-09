@@ -1,24 +1,12 @@
-import axios from "axios";
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import useContentDetails from "../customHooks/useContentDetails";
 
 const MovieDetails = (props) =>{
 
- const [movieDetails, setMovieDetails] = useState({});
- 
- useEffect(()=>{
-     
-     axios ({
-         url: `https://api.themoviedb.org/3/movie/${props.match.params.movieID}`,
-         params: {
-             api_key: '50f5c76a90810a4a56f5198029f99d06'
-         }
-     }).then((response)=>{
-        setMovieDetails(response.data)
-     })
+    const [type, setType] = useState(`/movie/${props.match.params.movieID}`)
 
- },[props.match.params.movieID])
-
-    const { original_title, tagline, overview, poster_path } = movieDetails;
+    const { details } = useContentDetails(type);
+    const { original_title, tagline, overview, poster_path } = details;
 
     return(
         <div className="poster">

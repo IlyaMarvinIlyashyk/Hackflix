@@ -1,16 +1,14 @@
 import './App.css';
-import Movies from './Movies';
-import MovieDetails from './MovieDetails';
+import Movies from './components/Movies';
+import MovieDetails from './components/MovieDetails';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Navbar from './Navbar';
-import TVs from './Tvs';
-import Trending from './Trending';
-import TvDetails from './TvDetails';
-import MyList from './MyList';
-
+import Navbar from './components/Navbar';
+import TVs from './components/Tvs';
+import Trending from './components/Trending';
+import TvDetails from './components/TvDetails';
+import MyList from './components/MyList';
 
 function App() {
-
 
   return (
     <Router>
