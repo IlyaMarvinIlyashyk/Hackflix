@@ -3,7 +3,7 @@ import useContentDetails from "../customHooks/useContentDetails";
 
 const TvDetails = (props) => {
 
-    const [type, setType] = useState(`tv/${props.match.params.tvID}`)
+    const [type] = useState(`tv/${props.match.params.tvID}`)
     
     const {details} = useContentDetails(type)
     const { original_name, tagline, overview, poster_path } = details;

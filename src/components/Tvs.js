@@ -15,7 +15,7 @@ const TVs = () => {
                 const {id, poster_path, original_title } = tvShow
 
                 return (
-                    <li key={id} className="movie">
+                    <li key={id}>
                         {
                         poster_path
                         ?

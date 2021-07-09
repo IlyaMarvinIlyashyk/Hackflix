@@ -4,8 +4,8 @@ import useContent from "../customHooks/useContent";
 
 const Trending = () => {
 
-    const [page, setPage] = useState(1)
-    const [category, setCategory] = useState('trending/all/day')
+    const [page] = useState(1)
+    const [category] = useState('trending/all/day')
     
     const { trending, hasMore, loading, error } = useContent(page, category);
 

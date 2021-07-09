@@ -4,8 +4,8 @@ import useContent from "../customHooks/useContent"
 
 const Movies = () => {
 
-    const [page, setPage] = useState(1)
-    const [category, setCategory] = useState('discover/movie')
+    const [page] = useState(1)
+    const [category] = useState('discover/movie')
     
     const { movies, hasMore, loading, error } = useContent(page, category);
     
@@ -16,7 +16,7 @@ const Movies = () => {
             const { id, poster_path, original_title, } = movie
                
                 return (
-                    <li key={id} className="movie">
+                    <li key={id}>
                         {
                         poster_path
                         ?

@@ -3,7 +3,7 @@ import useContentDetails from "../customHooks/useContentDetails";
 
 const MovieDetails = (props) =>{
 
-    const [type, setType] = useState(`/movie/${props.match.params.movieID}`)
+    const [type] = useState(`/movie/${props.match.params.movieID}`)
 
     const { details } = useContentDetails(type);
     const { original_title, tagline, overview, poster_path } = details;

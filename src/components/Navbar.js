@@ -13,7 +13,7 @@ const Navbar = () => {
 
                         <li>
                             <Link to="/tv-shows">
-                                Tv-Shows
+                                TV Shows
                             </Link>
                         </li>
                         
