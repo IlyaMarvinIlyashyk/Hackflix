@@ -1,6 +1,7 @@
 import { useState } from "react"
 import useContentDetails from "../customHooks/useContentDetails";
 import firebase from '../firebase';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
 const MovieDetails = ({match, movieList}) =>{
 
@@ -34,17 +35,19 @@ const MovieDetails = ({match, movieList}) =>{
     return(
         <div className="poster">
             <div className="description">
-                <h2>{original_title}</h2>
+                <div className="titleContainer">
+                    <h2>{original_title}</h2>
+                    {
+                        isSaved
+                        ?
+                        <button className="like" onClick={()=>{handleRemove(savedMovie.key)}}><FaHeart/></button>
+                        :
+                        <button className="like" onClick={()=>{handleAdd(details)}}><FaRegHeart/></button>
+                    }
+                </div>
                 <h3>{tagline}</h3>
                 <p>{overview}</p>
                 
-                {
-                    isSaved
-                    ?
-                    <button onClick={()=>{handleRemove(savedMovie.key)}}>Remove</button>
-                    :
-                    <button onClick={()=>{handleAdd(details)}}>Add</button>
-                }
 
             </div>
 

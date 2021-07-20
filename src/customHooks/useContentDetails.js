@@ -16,6 +16,8 @@ export default function useContentDetails (type) {
             setDetails(response.data)
         })
 
+        
+
     }, [])    
     
     return  { details }

@@ -1,22 +1,25 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import useContent from "../customHooks/useContent"
+import useInfiniteScroll from "../customHooks/useInfiniteScroll"
 
 const TVs = () => {
-
-    const [page, setPage] = useState(1)
-    const [category, setCategory] = useState('discover/tv')
-    const { tv, hasMore, loading, error } = useContent(page, category);
+    
+    const [category] = useState('discover/tv')
+    const { page, lastElementRef } = useInfiniteScroll()
+    const { tv } = useContent(page, category);
     
     return (
         <ul className="catalogue">
-            {tv.map((tvShow) => {
+            {tv.map((tvShow, index) => {
 
                 const {id, poster_path, original_title } = tvShow
 
-                return (
-                    <li key={id}>
-                        {
+                if (tv.length === index + 1) {
+
+                    return (
+                        <li ref={lastElementRef }key={id}>
+                            {
                             poster_path
                             ?
                             <Link to={`/tv/${id}`}>
@@ -26,9 +29,27 @@ const TVs = () => {
                             </Link>
                             :
                             <h2>Something went wrong 😢</h2>
-                        }
-                    </li>
-                )
+                            }
+                        </li>
+                    )
+                } else {
+                    return (
+                        <li key={id}>
+                            {
+                            poster_path
+                                ?
+                                <Link to={`/tv/${id}`}>
+                                    <img
+                                        src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                                        alt={`Poster for ${original_title}`} />
+                                </Link>
+                                :
+                                <h2>Something went wrong 😢</h2>
+                            }
+                        </li>
+                    )
+                    
+                }
             })}
         </ul>
     )
