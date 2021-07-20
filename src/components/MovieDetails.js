@@ -39,23 +39,24 @@ const MovieDetails = ({match, movieList}) =>{
                 <p>{overview}</p>
                 
                 {
-                isSaved
-                ?
-                <button onClick={()=>{handleRemove(savedMovie.key)}}>Remove</button>
-                :
-                <button onClick={()=>{handleAdd(details)}}>Add</button>
+                    isSaved
+                    ?
+                    <button onClick={()=>{handleRemove(savedMovie.key)}}>Remove</button>
+                    :
+                    <button onClick={()=>{handleAdd(details)}}>Add</button>
                 }
 
             </div>
+
             <div className="poster-image">
                 <img 
                     src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
                     alt={`Movie poster for ${original_title}`}
                 />
             </div>
+
         </div>
     )
-
 }
 
 export default MovieDetails

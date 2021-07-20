@@ -17,15 +17,15 @@ const TVs = () => {
                 return (
                     <li key={id}>
                         {
-                        poster_path
-                        ?
-                        <Link to={`/tv/${id}`}>
-                            <img
-                                src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-                                alt={`Poster for ${original_title}`} />
-                        </Link>
-                        :
-                        <h2>Something went wrong 😢</h2>
+                            poster_path
+                            ?
+                            <Link to={`/tv/${id}`}>
+                                <img
+                                    src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                                    alt={`Poster for ${original_title}`} />
+                            </Link>
+                            :
+                            <h2>Something went wrong 😢</h2>
                         }
                     </li>
                 )

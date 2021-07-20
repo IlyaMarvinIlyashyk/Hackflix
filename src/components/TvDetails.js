@@ -39,13 +39,13 @@ const TvDetails = ({ match, tvList }) => {
                 <p>{overview}</p>
 
                 {
-                isSaved
-                ?
-                <button onClick={()=>{handleRemove(savedMovie.key)}}>Remove</button>
-                :
-                <button onClick={()=>{handleAdd(details)}}>Add</button>
+                    isSaved
+                    ?
+                    <button onClick={()=>{handleRemove(savedMovie.key)}}>Remove</button>
+                    :
+                    <button onClick={()=>{handleAdd(details)}}>Add</button>
                 }
-                
+
             </div>
             <div className="poster-image">
                 <img
