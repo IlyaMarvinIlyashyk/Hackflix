@@ -12,6 +12,9 @@ export default function useContent(page, category) {
 
     useEffect(() => {
 
+        setLoading(true)
+        setError(false)
+
         axios({
             url: `https://api.themoviedb.org/3/${category}`,
             params: {
@@ -20,7 +23,9 @@ export default function useContent(page, category) {
                 page: page,
             },
         }).then((response) => {
-            setMovies(response.data.results)
+            setMovies(previous => {
+                return [...new Set ([...previous, ...response.data.results])]
+            })                
             setTv(response.data.results)
             setTrending(response.data.results)
         })
