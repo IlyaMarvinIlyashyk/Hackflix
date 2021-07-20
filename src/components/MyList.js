@@ -1,5 +1,3 @@
-import firebase from '../firebase'
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const MyList = ({userList}) => {
@@ -9,7 +7,6 @@ const MyList = ({userList}) => {
             <ul className="catalogue">
             {
             userList.map((user)=>{
-                console.log(user)
                 return (
                     <li key={user.key}>
                         {

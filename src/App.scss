@@ -56,9 +56,13 @@ h3 {
 }
 
 header nav {
-  padding: 3rem 4rem; 
+  padding: 2.5rem 4rem; 
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  z-index: 1;
+  background-color: black;
+  width: 100%;
 
   div {
     align-self: center;
@@ -107,16 +111,18 @@ header nav {
 }
 
 .catalogue {
-  display: flex;
-  flex-wrap: wrap; 
+  padding-top: 8.5rem;
+  display: grid; 
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: auto;
 
   li {
-    width: 20%;
-    padding: 1.25rem;
+    padding: 1rem;
   }
 }
 
 .poster {
+  padding-top: 8.5rem;
   display: flex;
   width: 93%;
   margin: 0 auto;
@@ -170,4 +176,34 @@ header nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (max-width: 1300px) {
+  .catalogue {
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .catalogue {
+    grid-template-columns: 33.33% 33.33% 33.33%;
+  }
+}
+
+@media (max-width: 700px) {
+  .catalogue {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@media (max-width: 700px) {
+  .catalogue {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@media (max-width: 500px) {
+  .catalogue {
+    grid-template-columns: 100%;
+  }
 }

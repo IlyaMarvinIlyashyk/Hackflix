@@ -14,12 +14,11 @@ const Trending = () => {
             {trending.map((t, index) => {
 
                 const {id, media_type, poster_path, original_title } = t
-
                 if (trending.length === index + 1) {
                     return (
-                        <li ref={lastElementRef} key={id} className="movie">
+                        <li ref={lastElementRef} key={index} className="movie">
                             {
-                                t.media_type === "movie"
+                                media_type === "movie"
                                     ?
                                     <Link to={`/movie/${id}`}>
                                         <img
@@ -27,7 +26,7 @@ const Trending = () => {
                                             alt={`Poster for ${original_title}`} />
                                     </Link>
                                     :
-                                    <Link to={`/tv/${t.id}`}>
+                                    <Link to={`/tv/${id}`}>
                                         <img
                                             src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
                                             alt={`Poster for ${original_title}`} 
